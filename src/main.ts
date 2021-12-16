@@ -1,4 +1,5 @@
 export * from './types/Action';
+export * from './types/Constructor';
 export * from './types/Delegate';
 export * from './types/Fallback';
 export * from './types/Key';

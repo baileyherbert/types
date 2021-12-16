@@ -1,4 +1,4 @@
 /**
- * Returns a type that represents the constructor of class `T`.
+ * A type that represents a class of type `T`.
  */
-export type Type<T> = new (...args: any[]) => T;
+export type Type<T> = Function & { prototype: T };

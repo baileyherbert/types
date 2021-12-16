@@ -9,6 +9,7 @@ npm install @baileyherbert/types
 ---
 
 - [`Action<T>`](#actiont)
+- [`Constructor<T>`](#constructort)
 - [`Delegate<T>`](#delegatet)
 - [`Fallback<T, F>`](#fallbackt-f)
 - [`Json`](#json)
@@ -30,6 +31,15 @@ Represents a function that has no arguments and returns type `T` (defaults to `u
 let fn: Action<boolean> = function() {
 	return true;
 }
+```
+
+### `Constructor<T>`
+
+Returns a type that represents the constructor for class `T`. The class cannot be abstract.
+
+```ts
+class Foo {}
+const constructor: Constructor<Foo> = Foo;
 ```
 
 ### `Delegate<T>`
@@ -140,11 +150,12 @@ type B = Value<Map, 'second', unknown>; // unknown
 
 ### `Type<T>`
 
-Returns a type that represents the constructor of class `T`.
+Returns a type that represents the class `T`. The class does not have to contain a constructor (i.e. it can be
+abstract).
 
 ```ts
 class Foo {}
-const constructor: Type<Foo> = Foo;
+const type: Type<Foo> = Foo;
 ```
 
 ### `Value<T, K, F>`
